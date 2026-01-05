@@ -33,11 +33,35 @@ h1{
   object-fit:cover;
 }
 
-video{
+<div class="gallery">
+  <img src="image1.jpg" alt="Image 1">
+  <img src="image2.jpg" alt="Image 2">
+ </div>
+    video{
   width:90%;
   max-width:380px;
   border-radius:12px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+    .gallery{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:15px;
+  margin-bottom:20px;
+}
+
+.gallery img{
+  width:150px;
+  height:150px;
+  object-fit:cover;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.5);
+  transition: transform 0.3s;
+}
+
+.gallery img:hover{
+  transform: scale(1.1);
 }
 </style>
 </head>
