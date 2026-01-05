@@ -14,12 +14,21 @@ body{
   font-family: Arial, sans-serif;
 }
 
+/* Neon Title */
 h1{
   margin-top:20px;
   margin-bottom:10px;
-  letter-spacing:2px;
+  letter-spacing:3px;
+  text-shadow: 0 0 10px #ff4d4d, 0 0 20px #ff0000;
+  animation: glow 2s infinite alternate;
 }
 
+@keyframes glow{
+  from{ text-shadow:0 0 10px #ff4d4d; }
+  to{ text-shadow:0 0 25px #ff0000; }
+}
+
+/* Logo */
 .logo-box{
   width:110px;
   height:110px;
@@ -27,7 +36,7 @@ h1{
   border-radius:50%;
   overflow:hidden;
   background:#111;
-  box-shadow: 0 0 15px rgba(255,255,255,0.15);
+  box-shadow: 0 0 20px rgba(255,0,0,0.6);
 }
 
 .logo-box img{
@@ -36,12 +45,23 @@ h1{
   object-fit:cover;
 }
 
+/* Fade-in animation */
+.fade-in{
+  animation: fadeIn 1.2s ease-in forwards;
+}
+
+@keyframes fadeIn{
+  from{ opacity:0; transform:translateY(20px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+
+/* Gallery */
 .gallery{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
   gap:15px;
-  margin-bottom:20px;
+  margin-bottom:25px;
 }
 
 .gallery img{
@@ -49,7 +69,7 @@ h1{
   height:150px;
   object-fit:cover;
   border-radius:12px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.5);
+  box-shadow:0 5px 15px rgba(0,0,0,0.6);
   transition: transform 0.3s;
 }
 
@@ -57,20 +77,45 @@ h1{
   transform: scale(1.1);
 }
 
+/* Video */
 video{
   width:90%;
   max-width:380px;
-  border-radius:12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-  margin-bottom:30px;
+  border-radius:15px;
+  box-shadow: 0 10px 30px rgba(255,0,0,0.5);
+  margin-bottom:25px;
   background:#000;
+  cursor:pointer;
+}
+
+/* Social Buttons */
+.socials{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin-bottom:35px;
+}
+
+.socials a{
+  text-decoration:none;
+  color:white;
+  padding:12px 22px;
+  border-radius:30px;
+  background:#111;
+  box-shadow:0 0 15px rgba(255,0,0,0.6);
+  transition: transform 0.3s, background 0.3s;
+}
+
+.socials a:hover{
+  transform:scale(1.1);
+  background:#ff0000;
 }
 </style>
 </head>
 
 <body>
 
-<header>
+<header class="fade-in">
   <div class="logo-box">
     <img src="logo.png" alt="THAR4LIFE Logo">
   </div>
@@ -78,16 +123,34 @@ video{
 </header>
 
 <!-- Gallery Section -->
-<div class="gallery">
+<div class="gallery fade-in">
   <img src="image1.jpg" alt="Image 1">
   <img src="image2.jpg" alt="Image 2">
 </div>
 
 <!-- Video Section -->
-<video autoplay muted loop playsinline>
+<video
+  class="fade-in"
+  autoplay
+  muted
+  loop
+  playsinline
+  poster="https://res.cloudinary.com/dd99niwgj/video/upload/VID_20260105_112403_086_vtfx93.jpg"
+  onclick="this.requestFullscreen()"
+>
   <source src="https://res.cloudinary.com/dd99niwgj/video/upload/f_auto,q_auto/VID_20260105_112403_086_vtfx93.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
+
+<!-- Social Links -->
+<div class="socials fade-in">
+  <a href="https://www.instagram.com/thar.4life_?igsh=Y2I3bHZtb2FweDNu" target="_blank">
+    Instagram
+  </a>
+  <a href="https://youtube.com" target="_blank">
+    YouTube
+  </a>
+</div>
 
 </body>
 </html>
