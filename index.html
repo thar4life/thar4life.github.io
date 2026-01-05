@@ -3,11 +3,41 @@
 <head>
   <title>THAR4LIFE</title>
   <style>
-.logo{
-  width:120px;
-  height:120px;
-  object-fit:cover;
+body{
+  margin:0;
+  background:black;
+  color:white;
+  text-align:center;
+  font-family: Arial, sans-serif;
+}
+
+h1{
+  margin-top:20px;
+  margin-bottom:10px;
+  letter-spacing:2px;
+}
+
+.logo-box{
+  width:110px;
+  height:110px;
+  margin: 0 auto 20px auto;
   border-radius:50%;
+  overflow:hidden;
+  background:#111;
+  box-shadow: 0 0 15px rgba(255,255,255,0.15);
+}
+
+.logo-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+video{
+  width:90%;
+  max-width:380px;
+  border-radius:12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
 }
 </style>
 </head>
@@ -15,7 +45,9 @@
 
   <h1>THAR4LIFE </h1>
 
-  <img src="logo.png" class="logo"><br><br>
+  <div class="logo-box">
+  <img src="logo.png">
+</div><br><br>
 
   <video controls width="300">
     <source src="PASTE_VIDEO_LINK_HERE" type="video/mp4">
