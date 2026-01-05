@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>THAR4LIFE</title>
-  <style>
+<meta charset="UTF-8">
+<title>THAR4LIFE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
 body{
   margin:0;
   background:black;
@@ -33,17 +36,7 @@ h1{
   object-fit:cover;
 }
 
-<div class="gallery">
-  <img src="image1.jpg" alt="Image 1">
-  <img src="image2.jpg" alt="Image 2">
- </div>
-    video{
-  width:90%;
-  max-width:380px;
-  border-radius:12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-}
-    .gallery{
+.gallery{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
@@ -63,19 +56,36 @@ h1{
 .gallery img:hover{
   transform: scale(1.1);
 }
+
+video{
+  width:90%;
+  max-width:380px;
+  border-radius:12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+  margin-bottom:30px;
+}
 </style>
 </head>
-<body style="background:black;color:white;text-align:center;">
 
-  <h1>THAR4LIFE </h1>
+<body>
 
+<header>
   <div class="logo-box">
-  <img src="logo.png">
-</div><br><br>
+    <img src="logo.png" alt="THAR4LIFE Logo">
+  </div>
+  <h1>THAR4LIFE </h1>
+</header>
 
-  <video controls width="300">
-    <source src="PASTE_VIDEO_LINK_HERE" type="video/mp4">
-  </video>
+<!-- Gallery Section -->
+<div class="gallery">
+  <img src="image1.jpg" alt="Image 1">
+  <img src="image2.jpg" alt="Image 2">
+</div>
+
+<!-- Video Section -->
+<video controls>
+  <source src="PASTE_VIDEO_LINK_HERE" type="video/mp4">
+</video>
 
 </body>
 </html>
