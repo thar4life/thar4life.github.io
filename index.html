@@ -6,60 +6,54 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-  .rotate-logo{
-  cursor: pointer;
-  transition: transform 0.6s ease;
+/* Logo rotation */
+.rotate-logo{
+  cursor:pointer;
+  transition:transform 0.6s ease;
 }
-
 .rotate-logo.rotating{
-  transform: rotate(360deg);
+  transform:rotate(360deg);
 }
 
-/* Existing CSS (body, h1, gallery, etc.) */
-
-/* STEP 1 — body background */
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
+/* Full background */
+html, body{
+  margin:0;
+  padding:0;
+  width:100%;
+  height:100%;
 }
 
-body {
-  color: white;
-  text-align: center;
-  font-family: Arial, sans-serif;
-
-  background-image: url("https://res.cloudinary.com/dd99niwgj/image/upload/v1767645990/thar4lifebg_ef258a.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+body{
+  color:white;
+  text-align:center;
+  font-family:Arial, sans-serif;
+  background-image:url("https://res.cloudinary.com/dd99niwgj/image/upload/v1767645990/thar4lifebg_ef258a.jpg");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  background-attachment:fixed;
 }
 
-/* STEP 2 — dark overlay */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: -1;
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  z-index:-1;
 }
 
-/* STEP 3 — keep content on top */
-body > * {
-  position: relative;
-  z-index: 1;
+body > *{
+  position:relative;
+  z-index:1;
 }
-/* Neon Title */
+
+/* Neon title */
 h1{
-  margin-top:20px;
-  margin-bottom:10px;
+  margin:20px 0 10px;
   letter-spacing:3px;
-  text-shadow: 0 0 10px #ff4d4d, 0 0 20px #ff0000;
-  animation: glow 2s infinite alternate;
+  text-shadow:0 0 10px #ff4d4d, 0 0 20px #ff0000;
+  animation:glow 2s infinite alternate;
 }
-
 @keyframes glow{
   from{ text-shadow:0 0 10px #ff4d4d; }
   to{ text-shadow:0 0 25px #ff0000; }
@@ -69,24 +63,22 @@ h1{
 .logo-box{
   width:110px;
   height:110px;
-  margin: 0 auto 20px auto;
+  margin:0 auto 20px;
   border-radius:50%;
   overflow:hidden;
   background:#111;
-  box-shadow: 0 0 20px rgba(255,0,0,0.6);
+  box-shadow:0 0 20px rgba(255,0,0,0.6);
 }
-
 .logo-box img{
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-/* Fade-in animation */
+/* Fade animation */
 .fade-in{
-  animation: fadeIn 1.2s ease-in forwards;
+  animation:fadeIn 1.2s ease-in forwards;
 }
-
 @keyframes fadeIn{
   from{ opacity:0; transform:translateY(20px); }
   to{ opacity:1; transform:translateY(0); }
@@ -98,34 +90,38 @@ h1{
   flex-wrap:wrap;
   justify-content:center;
   gap:15px;
-  margin-bottom:25px;
+  margin-bottom:30px;
 }
-
 .gallery img{
   width:300px;
   height:550px;
   object-fit:cover;
   border-radius:12px;
   box-shadow:0 5px 15px rgba(0,0,0,0.6);
-  transition: transform 0.3s;
+  transition:transform 0.3s;
 }
-
 .gallery img:hover{
-  transform: scale(1.1);
+  transform:scale(1.1);
 }
 
-/* Video */
-video{
-  width:90%;
-  max-width:380px;
-  border-radius:15px;
-  box-shadow: 0 10px 30px rgba(255,0,0,0.5);
-  margin-bottom:25px;
-  background:#000;
-  cursor:pointer;
+/* Reel layout */
+.reel{
+  height:90vh;
+  max-width:420px;
+  margin:40px auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.reel video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(255,0,0,0.5);
 }
 
-/* TEXT BETWEEN VIDEOS (ADDED ONLY THIS) */
+/* Text between videos */
 .video-text{
   font-size:28px;
   font-weight:bold;
@@ -134,46 +130,33 @@ video{
   margin:30px 0;
 }
 
-/* Social Buttons */
+/* Social buttons */
 .socials{
   display:flex;
   justify-content:center;
   gap:15px;
-  margin-bottom:35px;
+  margin:40px 0;
 }
 
-.socials a{
-  text-decoration:none;
-  color:white;
-  padding:12px 22px;
-  border-radius:30px;
-  background:#111;
-  box-shadow:0 0 15px rgba(255,0,0,0.6);
-  transition: transform 0.3s, background 0.3s;
-}
-
-.socials a:hover{
-  transform:scale(1.1);
-  background:#ff0000;
-}
-
-/* Instagram Button */
+/* Instagram */
 .insta-btn{
   display:flex;
   align-items:center;
   gap:10px;
   padding:12px 22px;
   border-radius:30px;
-  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+  background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
   color:white;
   font-weight:bold;
+  text-decoration:none;
 }
-
 .insta-btn img{
   width:18px;
   height:18px;
 }
-  .yt-btn{
+
+/* YouTube logo only */
+.yt-btn{
   display:flex;
   align-items:center;
   justify-content:center;
@@ -183,14 +166,12 @@ video{
   box-shadow:0 0 15px rgba(255,0,0,0.6);
   transition:transform 0.3s, background 0.3s;
 }
-
 .yt-btn:hover{
   transform:scale(1.1);
   background:#ff0000;
 }
-
 .yt-btn img{
-  width:70px;   /* BIG logo */
+  width:70px;
   height:auto;
 }
 </style>
@@ -199,90 +180,65 @@ video{
 <body>
 
 <header class="fade-in">
- <div class="logo-box rotate-logo" onclick="rotateAndRefresh()">
-  <img src="logo.png" alt="THAR4LIFE Logo">
-</div>
+  <div class="logo-box rotate-logo" onclick="rotateAndRefresh()">
+    <img src="logo.png" alt="THAR4LIFE Logo">
+  </div>
   <h1>THAR4LIFE</h1>
 </header>
 
-<!-- Gallery Section -->
+<!-- Gallery -->
 <div class="gallery fade-in">
-  <img src="image1.jpg" alt="Image 1">
-  <img src="image2.jpg" alt="Image 2">
-
-  <img src="https://res.cloudinary.com/dd99niwgj/image/upload/v1767646771/Screenshot_20260106_022330_Instagram_rskfcj.jpg" alt="THAR4LIFE Image 3">
-
-  <img src="https://res.cloudinary.com/dd99niwgj/image/upload/v1767646718/Screenshot_20260106_022610_Instagram_ynwdm4.jpg" alt="THAR4LIFE Image 4">
-
-  <img src="https://res.cloudinary.com/dd99niwgj/image/upload/v1767646709/Screenshot_20260106_022401_Instagram_u6qpgq.jpg" alt="THAR4LIFE Image 5">
+  <img src="image1.jpg">
+  <img src="image2.jpg">
+  <img src="https://res.cloudinary.com/dd99niwgj/image/upload/v1767646771/Screenshot_20260106_022330_Instagram_rskfcj.jpg">
+  <img src="https://res.cloudinary.com/dd99niwgj/image/upload/v1767646718/Screenshot_20260106_022610_Instagram_ynwdm4.jpg">
+  <img src="https://res.cloudinary.com/dd99niwgj/image/upload/v1767646709/Screenshot_20260106_022401_Instagram_u6qpgq.jpg">
 </div>
 
-<!-- First Video -->
-<video
-  class="fade-in"
-  autoplay
-  muted
-  loop
-  playsinline
-  poster="https://res.cloudinary.com/dd99niwgj/video/upload/VID_20260105_112403_086_vtfx93.jpg"
-  onclick="this.requestFullscreen()"
->
-  <source src="https://res.cloudinary.com/dd99niwgj/video/upload/f_auto,q_auto/VID_20260105_112403_086_vtfx93.mp4" type="video/mp4">
-</video>
+<!-- Reel 1 -->
+<div class="reel fade-in">
+  <video autoplay muted loop playsinline onclick="this.requestFullscreen()">
+    <source src="https://res.cloudinary.com/dd99niwgj/video/upload/f_auto,q_auto/VID_20260105_112403_086_vtfx93.mp4">
+  </video>
+</div>
 
-<!-- TEXT BETWEEN VIDEOS -->
 <div class="video-text fade-in">
-  PIND HOOD<br>
-  DAMM GOOD
+  PIND HOOD<br>DAMM GOOD
 </div>
 
-<!-- Second Video -->
-<video
-  class="fade-in"
-  autoplay
-  muted
-  loop
-  playsinline
-  onclick="this.requestFullscreen()"
->
-  <source src="https://res.cloudinary.com/dd99niwgj/video/upload/f_auto,q_auto/videothar4life_evrpth.mp4" type="video/mp4">
-</video>
+<!-- Reel 2 -->
+<div class="reel fade-in">
+  <video autoplay muted loop playsinline onclick="this.requestFullscreen()">
+    <source src="https://res.cloudinary.com/dd99niwgj/video/upload/f_auto,q_auto/videothar4life_evrpth.mp4">
+  </video>
+</div>
 
-  <!-- Third Video -->
-<video
-  class="fade-in"
-  autoplay
-  muted
-  loop
-  playsinline
-  onclick="this.requestFullscreen()"
->
-  <source src="https://res.cloudinary.com/dd99niwgj/video/upload/f_auto,q_auto/VID_20260105_125643_774_dlypou.mp4" type="video/mp4">
-</video>
+<!-- Reel 3 -->
+<div class="reel fade-in">
+  <video autoplay muted loop playsinline onclick="this.requestFullscreen()">
+    <source src="https://res.cloudinary.com/dd99niwgj/video/upload/f_auto,q_auto/VID_20260105_125643_774_dlypou.mp4">
+  </video>
+</div>
 
-<!-- Social Links -->
+<!-- Socials -->
 <div class="socials fade-in">
-  <a href="https://www.instagram.com/thar.4life_?igsh=Y2I3bHZtb2FweDNu"
-     target="_blank"
-     class="insta-btn">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram">
+  <a href="https://www.instagram.com/thar.4life_" target="_blank" class="insta-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg">
     Instagram
   </a>
 
-<a href="https://youtube.com" target="_blank" class="yt-btn">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube">
-</a>
+  <a href="https://youtube.com" target="_blank" class="yt-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg">
+  </a>
 </div>
 
- <script>
+<script>
 function rotateAndRefresh(){
-  const logo = document.querySelector('.rotate-logo');
+  const logo=document.querySelector('.rotate-logo');
   logo.classList.add('rotating');
-
-  setTimeout(() => {
-    location.reload();
-  }, 600); // wait till rotation finishes
+  setTimeout(()=>location.reload(),600);
 }
 </script>
+
 </body>
 </html>
