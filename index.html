@@ -191,9 +191,9 @@ video{
 <body>
 
 <header class="fade-in">
-  <div class="logo-box">
-    <img src="logo.png" alt="THAR4LIFE Logo">
-  </div>
+  <div class="logo-box" onclick="refreshPage()">
+  <img src="logo.png" alt="THAR4LIFE Logo">
+</div>
   <h1>THAR4LIFE</h1>
 </header>
 
@@ -266,5 +266,10 @@ video{
 </a>
 </div>
 
+  <script>
+function refreshPage(){
+  window.location.reload();
+}
+</script>
 </body>
 </html>
