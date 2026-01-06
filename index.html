@@ -6,6 +6,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+
+/* ================= LOADER ================= */
+#loader{
+  position:fixed;
+  inset:0;
+  background:black;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+#loader img{
+  width:120px;
+  animation: spin 1.5s linear infinite;
+}
+
+#loader span{
+  margin-top:15px;
+  font-size:18px;
+  letter-spacing:2px;
+  color:red;
+}
+
+@keyframes spin{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+
+/* ================= MAIN ================= */
 html, body {
   margin: 0;
   padding: 0;
@@ -84,6 +115,20 @@ h1{
   to{ opacity:1; transform:translateY(0); }
 }
 
+/* FOLLOW US TEXT */
+.follow-text{
+  font-size:22px;
+  font-weight:bold;
+  letter-spacing:3px;
+  margin:25px 0;
+  animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse{
+  from{opacity:0.6;}
+  to{opacity:1;}
+}
+
 /* Gallery */
 .gallery{
   display:flex;
@@ -122,7 +167,6 @@ h1{
   object-fit: cover;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(255,0,0,0.5);
-  cursor:pointer;
 }
 
 /* Text Between Videos */
@@ -203,19 +247,29 @@ h1{
 .map-btn img{
   width:28px;
   height:28px;
-  object-fit:contain;
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- LOADER -->
+<div id="loader">
+  <img src="logo.png">
+  <span>THAR4LIFE LOADING...</span>
+</div>
+
 <header class="fade-in">
   <div class="logo-box" onclick="rotateAndRefresh()">
-    <img src="logo.png" alt="THAR4LIFE Logo">
+    <img src="logo.png">
   </div>
   <h1>THAR4LIFE</h1>
 </header>
+
+<div class="follow-text fade-in">
+  FOLLOW US ON INSTAGRAM 🔥
+</div>
 
 <!-- Gallery -->
 <div class="gallery fade-in">
@@ -229,7 +283,7 @@ h1{
 <!-- Reel 1 -->
 <div class="reel fade-in">
   <video autoplay muted loop playsinline>
-    <source src="https://res.cloudinary.com/dd99niwgj/video/upload/f_auto,q_auto/VID_20260105_112403_086_vtfx93.mp4" type="video/mp4">
+    <source src="https://res.cloudinary.com/dd99niwgj/video/upload/f_auto,q_auto/VID_20260105_112403_086_vtfx93.mp4">
   </video>
 </div>
 
@@ -240,14 +294,14 @@ h1{
 <!-- Reel 2 -->
 <div class="reel fade-in">
   <video autoplay muted loop playsinline>
-    <source src="https://res.cloudinary.com/dd99niwgj/video/upload/f_auto,q_auto/videothar4life_evrpth.mp4" type="video/mp4">
+    <source src="https://res.cloudinary.com/dd99niwgj/video/upload/f_auto,q_auto/videothar4life_evrpth.mp4">
   </video>
 </div>
 
 <!-- Reel 3 -->
 <div class="reel fade-in">
   <video autoplay muted loop playsinline>
-    <source src="https://res.cloudinary.com/dd99niwgj/video/upload/f_auto,q_auto/VID_20260105_125643_774_dlypou.mp4" type="video/mp4">
+    <source src="https://res.cloudinary.com/dd99niwgj/video/upload/f_auto,q_auto/VID_20260105_125643_774_dlypou.mp4">
   </video>
 </div>
 
@@ -263,10 +317,10 @@ h1{
     <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg">
   </a>
 
- <a href="https://maps.app.goo.gl/7QCeYWM6MdUUgrU88" target="_blank" class="map-btn">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Google_Maps_logo_2020.svg/512px-Google_Maps_logo_2020.svg.png" alt="Map">
-  Location
-</a>
+  <a href="https://maps.app.goo.gl/7QCeYWM6MdUUgrU88" target="_blank" class="map-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Google_Maps_logo_2020.svg/512px-Google_Maps_logo_2020.svg.png">
+    Location
+  </a>
 
 </div>
 
@@ -277,6 +331,13 @@ function rotateAndRefresh(){
   setTimeout(() => {
     location.reload();
   }, 600);
+}
+
+/* Loader hide */
+window.onload = function(){
+  setTimeout(() => {
+    document.getElementById("loader").style.display = "none";
+  }, 1500);
 }
 </script>
 
