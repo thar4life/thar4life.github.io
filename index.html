@@ -6,54 +6,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* Logo rotation */
-.rotate-logo{
-  cursor:pointer;
-  transition:transform 0.6s ease;
-}
-.rotate-logo.rotating{
-  transform:rotate(360deg);
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
-/* Full background */
-html, body{
-  margin:0;
-  padding:0;
-  width:100%;
-  height:100%;
+body {
+  color: white;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background-image: url("https://res.cloudinary.com/dd99niwgj/image/upload/v1767645990/thar4lifebg_ef258a.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-body{
-  color:white;
-  text-align:center;
-  font-family:Arial, sans-serif;
-  background-image:url("https://res.cloudinary.com/dd99niwgj/image/upload/v1767645990/thar4lifebg_ef258a.jpg");
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
-  background-attachment:fixed;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: -1;
 }
 
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.55);
-  z-index:-1;
+body > * {
+  position: relative;
+  z-index: 1;
 }
 
-body > *{
-  position:relative;
-  z-index:1;
-}
-
-/* Neon title */
+/* Neon Title */
 h1{
-  margin:20px 0 10px;
+  margin-top:20px;
+  margin-bottom:10px;
   letter-spacing:3px;
-  text-shadow:0 0 10px #ff4d4d, 0 0 20px #ff0000;
-  animation:glow 2s infinite alternate;
+  text-shadow: 0 0 10px #ff4d4d, 0 0 20px #ff0000;
+  animation: glow 2s infinite alternate;
 }
+
 @keyframes glow{
   from{ text-shadow:0 0 10px #ff4d4d; }
   to{ text-shadow:0 0 25px #ff0000; }
@@ -63,22 +55,30 @@ h1{
 .logo-box{
   width:110px;
   height:110px;
-  margin:0 auto 20px;
+  margin: 0 auto 20px auto;
   border-radius:50%;
   overflow:hidden;
   background:#111;
-  box-shadow:0 0 20px rgba(255,0,0,0.6);
+  box-shadow: 0 0 20px rgba(255,0,0,0.6);
+  cursor:pointer;
+  transition: transform 0.6s ease;
 }
+
+.logo-box.rotating{
+  transform: rotate(360deg);
+}
+
 .logo-box img{
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-/* Fade animation */
+/* Fade-in */
 .fade-in{
-  animation:fadeIn 1.2s ease-in forwards;
+  animation: fadeIn 1.2s ease-in forwards;
 }
+
 @keyframes fadeIn{
   from{ opacity:0; transform:translateY(20px); }
   to{ opacity:1; transform:translateY(0); }
@@ -90,38 +90,42 @@ h1{
   flex-wrap:wrap;
   justify-content:center;
   gap:15px;
-  margin-bottom:30px;
+  margin-bottom:25px;
 }
+
 .gallery img{
   width:300px;
   height:550px;
   object-fit:cover;
   border-radius:12px;
   box-shadow:0 5px 15px rgba(0,0,0,0.6);
-  transition:transform 0.3s;
+  transition: transform 0.3s;
 }
+
 .gallery img:hover{
-  transform:scale(1.1);
+  transform: scale(1.1);
 }
 
-/* Reel layout */
-.reel{
-  height:90vh;
-  max-width:420px;
-  margin:40px auto;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-.reel video{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:20px;
-  box-shadow:0 10px 30px rgba(255,0,0,0.5);
+/* Reel Style */
+.reel {
+  height: 90vh;
+  max-width: 420px;
+  margin: 40px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Text between videos */
+.reel video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(255,0,0,0.5);
+  cursor:pointer;
+}
+
+/* Text Between Videos */
 .video-text{
   font-size:28px;
   font-weight:bold;
@@ -130,32 +134,32 @@ h1{
   margin:30px 0;
 }
 
-/* Social buttons */
+/* Social Buttons */
 .socials{
   display:flex;
+  flex-wrap:wrap;
   justify-content:center;
   gap:15px;
-  margin:40px 0;
+  margin-bottom:35px;
 }
 
-/* Instagram */
 .insta-btn{
   display:flex;
   align-items:center;
   gap:10px;
   padding:12px 22px;
   border-radius:30px;
-  background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
   color:white;
   font-weight:bold;
   text-decoration:none;
 }
+
 .insta-btn img{
   width:18px;
   height:18px;
 }
 
-/* YouTube logo only */
 .yt-btn{
   display:flex;
   align-items:center;
@@ -166,13 +170,39 @@ h1{
   box-shadow:0 0 15px rgba(255,0,0,0.6);
   transition:transform 0.3s, background 0.3s;
 }
+
 .yt-btn:hover{
   transform:scale(1.1);
   background:#ff0000;
 }
+
 .yt-btn img{
   width:70px;
   height:auto;
+}
+
+.map-btn{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 22px;
+  border-radius:30px;
+  background:#111;
+  box-shadow:0 0 15px rgba(255,0,0,0.6);
+  transition:transform 0.3s, background 0.3s;
+  text-decoration:none;
+  color:white;
+  font-weight:bold;
+}
+
+.map-btn:hover{
+  transform:scale(1.1);
+  background:#1a73e8;
+}
+
+.map-btn img{
+  width:22px;
+  height:22px;
 }
 </style>
 </head>
@@ -180,7 +210,7 @@ h1{
 <body>
 
 <header class="fade-in">
-  <div class="logo-box rotate-logo" onclick="rotateAndRefresh()">
+  <div class="logo-box" onclick="rotateAndRefresh()">
     <img src="logo.png" alt="THAR4LIFE Logo">
   </div>
   <h1>THAR4LIFE</h1>
@@ -197,8 +227,8 @@ h1{
 
 <!-- Reel 1 -->
 <div class="reel fade-in">
-  <video autoplay muted loop playsinline onclick="this.requestFullscreen()">
-    <source src="https://res.cloudinary.com/dd99niwgj/video/upload/f_auto,q_auto/VID_20260105_112403_086_vtfx93.mp4">
+  <video autoplay muted loop playsinline>
+    <source src="https://res.cloudinary.com/dd99niwgj/video/upload/f_auto,q_auto/VID_20260105_112403_086_vtfx93.mp4" type="video/mp4">
   </video>
 </div>
 
@@ -208,35 +238,44 @@ h1{
 
 <!-- Reel 2 -->
 <div class="reel fade-in">
-  <video autoplay muted loop playsinline onclick="this.requestFullscreen()">
-    <source src="https://res.cloudinary.com/dd99niwgj/video/upload/f_auto,q_auto/videothar4life_evrpth.mp4">
+  <video autoplay muted loop playsinline>
+    <source src="https://res.cloudinary.com/dd99niwgj/video/upload/f_auto,q_auto/videothar4life_evrpth.mp4" type="video/mp4">
   </video>
 </div>
 
 <!-- Reel 3 -->
 <div class="reel fade-in">
-  <video autoplay muted loop playsinline onclick="this.requestFullscreen()">
-    <source src="https://res.cloudinary.com/dd99niwgj/video/upload/f_auto,q_auto/VID_20260105_125643_774_dlypou.mp4">
+  <video autoplay muted loop playsinline>
+    <source src="https://res.cloudinary.com/dd99niwgj/video/upload/f_auto,q_auto/VID_20260105_125643_774_dlypou.mp4" type="video/mp4">
   </video>
 </div>
 
 <!-- Socials -->
 <div class="socials fade-in">
-  <a href="https://www.instagram.com/thar.4life_" target="_blank" class="insta-btn">
+
+  <a href="https://www.instagram.com/thar.4life_?igsh=Y2I3bHZtb2FweDNu" target="_blank" class="insta-btn">
     <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg">
     Instagram
   </a>
 
-  <a href="https://www.youtube.com/channel/UCoDZQNq5m6sRJdQltpW35Qw" target="_blank" class="yt-btn">
+  <a href="https://youtube.com" target="_blank" class="yt-btn">
     <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg">
   </a>
+
+  <a href="https://maps.app.goo.gl/7QCeYWM6MdUUgrU88" target="_blank" class="map-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Google_Maps_Logo_2020.svg">
+    Location
+  </a>
+
 </div>
 
 <script>
 function rotateAndRefresh(){
-  const logo=document.querySelector('.rotate-logo');
+  const logo = document.querySelector('.logo-box');
   logo.classList.add('rotating');
-  setTimeout(()=>location.reload(),600);
+  setTimeout(() => {
+    location.reload();
+  }, 600);
 }
 </script>
 
