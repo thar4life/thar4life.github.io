@@ -104,6 +104,32 @@ h1{
   height:100%;
   object-fit:cover;
 }
+  <!-- STORY MODE -->
+<div class="story-container">
+
+  <div class="story" onclick="openStory('https://res.cloudinary.com/dd99niwgj/image/upload/v1767646771/Screenshot_20260106_022330_Instagram_rskfcj.jpg')">
+    <img src="https://res.cloudinary.com/dd99niwgj/image/upload/v1767646771/Screenshot_20260106_022330_Instagram_rskfcj.jpg">
+    <span>Ride</span>
+  </div>
+
+  <div class="story" onclick="openStory('https://res.cloudinary.com/dd99niwgj/image/upload/v1767646718/Screenshot_20260106_022610_Instagram_ynwdm4.jpg')">
+    <img src="https://res.cloudinary.com/dd99niwgj/image/upload/v1767646718/Screenshot_20260106_022610_Instagram_ynwdm4.jpg">
+    <span>Village</span>
+  </div>
+
+  <div class="story" onclick="openStory('https://res.cloudinary.com/dd99niwgj/video/upload/v1767647165/VID_20260105_125643_774_dlypou.mp4', true)">
+    <img src="https://res.cloudinary.com/dd99niwgj/image/upload/v1767646709/Screenshot_20260106_022401_Instagram_u6qpgq.jpg">
+    <span>Night</span>
+  </div>
+
+</div>
+
+<!-- STORY VIEWER -->
+<div id="storyViewer" class="story-viewer" onclick="closeStory()">
+  <span class="close-btn">✕</span>
+  <img id="storyImage">
+  <video id="storyVideo" autoplay controls></video>
+</div>
 
 /* Fade-in */
 .fade-in{
@@ -248,6 +274,60 @@ h1{
   width:32px;
   height:32px;
 }
+  /* STORY MODE */
+.story-container{
+  display:flex;
+  gap:15px;
+  padding:15px;
+  overflow-x:auto;
+  justify-content:center;
+}
+
+.story{
+  text-align:center;
+  cursor:pointer;
+}
+
+.story img{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid #ff0000;
+  box-shadow:0 0 10px red;
+}
+
+.story span{
+  display:block;
+  margin-top:5px;
+  font-size:14px;
+}
+
+/* STORY VIEWER */
+.story-viewer{
+  position:fixed;
+  inset:0;
+  background:black;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+.story-viewer img,
+.story-viewer video{
+  max-width:95%;
+  max-height:95%;
+}
+
+.close-btn{
+  position:absolute;
+  top:20px;
+  right:20px;
+  font-size:30px;
+  color:white;
+  cursor:pointer;
+}
 
 </style>
 </head>
@@ -338,6 +418,32 @@ window.onload = function(){
   setTimeout(() => {
     document.getElementById("loader").style.display = "none";
   }, 1500);
+}
+</script>
+  <script>
+function openStory(src, isVideo=false){
+  const viewer = document.getElementById("storyViewer");
+  const img = document.getElementById("storyImage");
+  const video = document.getElementById("storyVideo");
+
+  viewer.style.display = "flex";
+
+  if(isVideo){
+    img.style.display = "none";
+    video.style.display = "block";
+    video.src = src;
+  } else {
+    video.style.display = "none";
+    img.style.display = "block";
+    img.src = src;
+  }
+}
+
+function closeStory(){
+  const viewer = document.getElementById("storyViewer");
+  const video = document.getElementById("storyVideo");
+  viewer.style.display = "none";
+  video.pause();
 }
 </script>
 
